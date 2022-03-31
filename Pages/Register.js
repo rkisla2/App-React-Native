@@ -5,50 +5,47 @@ import {
   TextInput,
   StyleSheet,
   TouchableHighlight,
-  ScrollView,
 } from 'react-native';
 import React from 'react';
 
-export default function Kayıt({navigation}) {
+export default function Register({navigation}) {
   return (
     <SafeAreaView style={styles.container}>
-      <ScrollView>
-        <View style={styles.header}>
-          <Text style={styles.headerText}>Kaydol</Text>
-        </View>
-        <View style={styles.section1}>
-          <Text style={styles.text}>Ad:</Text>
-          <TextInput
-            placeholder={'Adınızı giriniz'}
-            style={styles.input}></TextInput>
-          <Text style={styles.text}>Soyad:</Text>
-          <TextInput
-            placeholder={'Soyadınızı giriniz'}
-            style={styles.input}></TextInput>
-          <Text style={styles.text}>Email</Text>
-          <TextInput
-            placeholder={'example@gmail.com'}
-            style={styles.input}></TextInput>
-          <Text style={styles.text}>Şifre</Text>
-          <TextInput
-            secureTextEntry={true}
-            placeholder={'Şifrenizi giriniz'}
-            style={styles.input}></TextInput>
-          <Text style={styles.text}>Şifre (Tekrar)</Text>
-          <TextInput
-            placeholder={'Şifrenizi tekrar giriniz'}
-            style={styles.input}></TextInput>
-        </View>
-        <View>
-          <TouchableHighlight
-            onPress={() => {
-              navigation.navigate('Login');
-            }}
-            style={styles.btnKaydol}>
-            <Text style={styles.btnText}>Kaydol</Text>
-          </TouchableHighlight>
-        </View>
-      </ScrollView>
+      <View style={styles.header}>
+        <Text style={styles.headerText}>CREATE ACCOUNT</Text>
+      </View>
+      <View style={styles.section1}>
+        <TextInput
+          placeholder={'FullName'}
+          placeholderTextColor={'white'}
+          style={styles.input}></TextInput>
+
+        <TextInput
+          placeholder={'Email'}
+          placeholderTextColor={'white'}
+          style={styles.input}></TextInput>
+
+        <TextInput
+          secureTextEntry={true}
+          placeholder={'Password'}
+          placeholderTextColor={'white'}
+          style={styles.input}></TextInput>
+
+        <TextInput
+          secureTextEntry={true}
+          placeholderTextColor={'white'}
+          placeholder={'Password'}
+          style={styles.input}></TextInput>
+      </View>
+      <View style={styles.section2}>
+        <TouchableHighlight
+          onPress={() => {
+            navigation.navigate('Login');
+          }}
+          style={styles.btnKaydol}>
+          <Text style={styles.btnText}>Create Account</Text>
+        </TouchableHighlight>
+      </View>
     </SafeAreaView>
   );
 }
@@ -60,48 +57,58 @@ const styles = StyleSheet.create({
     margin: 0,
   },
   header: {
-    flex: 0.2,
+    height: 200,
+    flex: 0.5,
     alignItems: 'center',
     justifyContent: 'center',
+    backgroundColor: '#AEFEFF',
+    borderBottomLeftRadius: 50,
+    borderBottomRightRadius: 50,
+  },
+  section1: {
+    flex: 0.6,
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  section2: {
+    flex: 0.3,
   },
   headerText: {
-    color: '#EFFFFD',
-    fontSize: 40,
+    color: '#072227',
+    fontSize: 35,
+    opacity: 0.8,
     margin: 20,
     fontFamily: 'Arial',
   },
-  section1: {
-    marginHorizontal: 20,
-    flex: 0.8,
-  },
+
   text: {
-    textAlign: 'center',
     color: '#EFFFFD',
     fontSize: 20,
     paddingLeft: 20,
   },
   input: {
-    paddingLeft: 7,
-    marginBottom: 20,
-    marginStart: 20,
-    marginEnd: 20,
-    backgroundColor: '#072227',
-    borderBottomWidth: 3,
+    width: 300,
+    marginBottom: 30,
+    borderBottomWidth: 2,
+    borderColor: '#072227',
     borderBottomColor: '#AEFEFF',
-    color: 'black',
+    color: 'white',
+    textAlign: 'center',
     fontSize: 20,
+    opacity: 0.6,
   },
   btnKaydol: {
-    flex: 0.2,
-    marginTop: 30,
     backgroundColor: '#AEFEFF',
     alignItems: 'center',
     height: 60,
     justifyContent: 'center',
-    marginHorizontal: 20,
+    marginHorizontal: 10,
+    marginTop: 40,
+    borderRadius: 10,
   },
   btnText: {
     fontSize: 20,
     color: '#072227',
+    fontWeight: '500',
   },
 });

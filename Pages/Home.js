@@ -1,16 +1,10 @@
-import React from 'react';
-import {View, Text, StyleSheet} from 'react-native';
-export default function Home({navigation}) {
+import { View, Text } from 'react-native'
+import React from 'react'
+
+export default function Home() {
   return (
-    <View style={styles.container}>
+    <View>
       <Text>Home</Text>
     </View>
-  );
+  )
 }
-const styles = StyleSheet.create({
-  container: {
-    alignItems: 'center',
-    justifyContent: 'center',
-    flex: 1,
-  },
-});

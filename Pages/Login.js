@@ -1,46 +1,53 @@
 import React from 'react';
-
 import {
   View,
   Text,
   SafeAreaView,
   StyleSheet,
   TextInput,
-  Image,
   TouchableOpacity,
 } from 'react-native';
 
-export default function First({navigation}) {
+export default function Login({navigation}) {
   return (
     <SafeAreaView style={styles.container}>
+      <View style={styles.Header}>
+        <Text style={styles.HeaderText}>LOGIN</Text>
+      </View>
       <View style={styles.section1}>
-        <Image source={require('./customer.png')}></Image>
+        <TextInput
+          placeholder="User Name"
+          placeholderTextColor={'white'}
+          style={styles.input}></TextInput>
+
+        <TextInput
+          secureTextEntry={true}
+          placeholder="Password"
+          placeholderTextColor={'white'}
+          style={styles.input}></TextInput>
       </View>
       <View style={styles.section2}>
-        <Text style={styles.Text}>Kullanıcı Adı</Text>
-        <TextInput style={styles.input}></TextInput>
-
-        <Text style={styles.Text}>Şifre</Text>
-        <TextInput style={styles.input}></TextInput>
-      </View>
-      <View style={styles.section3}>
         <TouchableOpacity
           onPressIn={() => {
-            navigation.navigate('Home');
+            navigation.navigate('Tabs');
           }}
           style={styles.Button}
-          title="Giriş Yap"
+          title="Login"
           onPress={() => {}}>
-          <Text style={styles.btnText}>Giriş Yap</Text>
+          <Text style={styles.btnText}>Login</Text>
         </TouchableOpacity>
+      </View>
+      <View style={styles.section3}>
+        <Text style={{color: '#AAD8D3'}}>Don't have an account? </Text>
         <TouchableOpacity
           onPress={() => {
             navigation.navigate('Register');
           }}
-          style={styles.Button}
-          title="Kayıt ol"
+          title="  CreateAccount"
           o>
-          <Text style={styles.btnText}>Kayıt Ol</Text>
+          <Text style={{color: '#FAF3F3', textDecorationLine: 'underline'}}>
+            CreateAccount
+          </Text>
         </TouchableOpacity>
       </View>
     </SafeAreaView>
@@ -50,53 +57,57 @@ const styles = StyleSheet.create({
   container: {
     backgroundColor: '#072227',
     flex: 1,
-
-    borderWidth: 7,
-    borderRightColor: '#AEFEFF',
-    borderLeftColor: '#AEFEFF',
-    borderBottomColor: '#072227',
-    borderTopColor: '#072227',
+    margin: 0,
+    padding: 0,
   },
-  section1: {
-    flex: 0.2,
+  Header: {
+    flex: 0.4,
     alignItems: 'center',
     backgroundColor: '#AEFEFF',
-    borderRadius: 150,
-    marginTop: 30,
     justifyContent: 'center',
-    width: 120,
-    height: 120,
-    marginLeft: 125,
+    borderBottomLeftRadius: 50,
+    borderBottomRightRadius: 50,
+  },
+  section1: {
+    marginTop: 40,
+    flex: 0.2,
+
+    alignItems: 'center',
+    justifyContent: 'center',
   },
   section2: {
-    paddingTop: 30,
-    fontSize: 20,
-    marginTop: 40,
-    flex: 0.4,
-    textAlign: 'center',
-    alignItems: 'center',
+    flex: 0.2,
+    justifyContent: 'center',
+    marginRight: 30,
+    marginLeft: 30,
+  },
+  section3: {
+    flex: 0.2,
+    flexDirection: 'row',
+    marginLeft: 60,
+    paddingLeft: 10,
   },
 
   input: {
     width: 300,
-    marginBottom: 20,
-    justifyContent: 'center',
-    borderWidth: 5,
+    marginBottom: 30,
+    borderBottomWidth: 2,
     borderColor: '#072227',
     borderBottomColor: '#AEFEFF',
     color: 'white',
+    textAlign: 'center',
+    fontSize: 20,
+    opacity: 0.6,
   },
   Text: {
     color: 'white',
     fontSize: 20,
     justifyContent: 'center',
   },
-  section3: {
-    flex: 0.4,
-    paddingTop: 20,
-    marginRight: 30,
-    marginLeft: 30,
+  HeaderText: {
+    fontSize: 40,
   },
+
   Button: {
     margin: 10,
     borderColor: 'white',
