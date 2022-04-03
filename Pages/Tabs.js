@@ -1,5 +1,6 @@
 import React from 'react';
 import {Image, SafeAreaView, View, Text, StyleSheet} from 'react-native';
+
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 import Home from './Home';
 import Settings from './Settings';
@@ -15,16 +16,19 @@ export default function Tabs({navigation}) {
         left: 20,
         right: 20,
         elevation: 0,
-        backgraundColor: '#ffffff',
+        backgraundColor: '#AEFEFF',
         borderRadius: 15,
         height: 90,
+        opacity: 0.6,
         ...style.shadow,
       }}
       tabBarOptions={{showLabel: false}}>
       <Tab.Screen
+        o
         name="Home"
         component={Home}
         options={{
+          headerShown: false,
           tabBarIcon: ({focused}) => (
             <View>
               <Image
@@ -39,6 +43,7 @@ export default function Tabs({navigation}) {
         name="Search"
         component={Search}
         options={{
+          headerShown: false,
           tabBarIcon: ({focused}) => (
             <View>
               <Image
